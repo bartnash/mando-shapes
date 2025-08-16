@@ -1,0 +1,58 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+.pnpm-debug.log*
+
+# Diagnostic reports (https://nodejs.org/api/report.html)
+.report/
+
+# Node.js
+node_modules/
+dist/
+build/
+*.local
+
+# Editor directories and files
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.bak
+
+# Environment variables
+.env
+.env.development.local
+.env.test.local
+.env.production.local
+.env.local
+
+# Runtime content
+/tmp
+
+# Vite specific
+.vite/
+
+# macOS
+.DS_Store
+
+# npm package manager
+package-lock.json
+
+# yarn package manager
+yarn.lock
+
+# pnpm package manager
+pnpm-lock.yaml
+
+# Deno
+.deno/
+
+# Others
+*.swp
+*.swo

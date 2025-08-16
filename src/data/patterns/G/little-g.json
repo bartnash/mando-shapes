@@ -1,0 +1,16 @@
+{
+  "name": "Little G",
+  "description": "A simple pattern in the key of G.",
+  "shapes": [
+    {
+      "name": "I",
+      "image": "patterns/G/1.png",
+      "romanNumeral": "I"
+    },
+    {
+      "name": "IV",
+      "image": "patterns/G/4.png",
+      "romanNumeral": "IV"
+    }
+  ]
+}

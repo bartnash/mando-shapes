@@ -1,0 +1,31 @@
+{
+  "name": "D Chop",
+  "description": "A common chop chord pattern in the key of D.",
+  "shapes": [
+    {
+      "name": "I",
+      "image": "patterns/d-chop/dChop1.svg",
+      "romanNumeral": "I"
+    },
+    {
+      "name": "ii",
+      "image": "patterns/d-chop/dChop-ii.svg",
+      "romanNumeral": "ii"
+    },
+    {
+      "name": "IV",
+      "image": "patterns/d-chop/dChop4.svg",
+      "romanNumeral": "IV"
+    },
+    {
+      "name": "V",
+      "image": "patterns/d-chop/dChop5.svg",
+      "romanNumeral": "V"
+    },
+    {
+      "name": "vi",
+      "image": "patterns/d-chop/dChop-vi.svg",
+      "romanNumeral": "vi"
+    }
+  ]
+}
