@@ -31,7 +31,7 @@
 }
 
 .chord-item-wrapper {
-  flex: 0 0 100%;
+  flex: 0 0 25%;
   height: 100%;
   scroll-snap-align: center;
   display: flex;
@@ -82,6 +82,7 @@
   justify-content: center;
   margin-bottom: 2rem;
   flex-wrap: wrap;
+  width: 100%;
 }
 
 .tab-button {
@@ -109,7 +110,7 @@
 .pattern-content {
   display: flex;
   height: 100%;
-  overflow: hidden; /* Prevent content from overflowing its grid area */
+  width: 100%;
 }
 
 /* App-specific styles */
@@ -133,12 +134,14 @@
 }
 
 .patterns-page {
-  justify-content: flex-start; /* Align content to the top */
+  display: flex;
+  justify-content: center; /* Align content to the top */
   padding-top: 1rem; /* Reduced padding */
   display: grid; /* Use CSS Grid */
   grid-template-rows: auto 1fr; /* First row for tabs (auto height), second for content (fills space) */
   gap: 1rem; /* Space between tabs and content */
   height: 100vh; /* Ensure it takes full viewport height */
+  width: 100vw;
 }
 
 .scroll-indicator {
