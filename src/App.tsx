@@ -38,7 +38,7 @@ const App = () => {
       <section className="scroll-page welcome-page">
         <header>
           <img src="images/favicon.svg" alt="Mandolin Icon" className="app-icon" />
-          <h1>Mandolin Chord Shapes</h1>
+          <h1>Mandolin Shapes</h1>
         </header>
         <div className="scroll-indicator">Scroll Down</div>
       </section>
