@@ -6,9 +6,9 @@ interface ChordProps {
   onClick?: () => void; // Add optional onClick prop
 }
 
-const Chord = ({ chord, imageSrc, onClick }: ChordProps) => { // Destructure onClick
+const Chord = ({ chord, imageSrc, onClick }: ChordProps) => { 
   return (
-    <div className="chord-item" onClick={onClick}> // Pass onClick to the div
+    <div className="chord-item" onClick={onClick}>
       <img src={imageSrc} alt={`${chord.name} chord`} />
       <p>{chord.romanNumeral}</p>
     </div>
