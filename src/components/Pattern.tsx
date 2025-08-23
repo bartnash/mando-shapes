@@ -42,6 +42,15 @@ const PatternDisplay = ({ pattern }: PatternDisplayProps) => {
     return module?.default || '';
   };
 
+  const handleChordClick = (index: number) => {
+    if (scrollerRef.current) {
+      const chordElement = scrollerRef.current.children[index] as HTMLElement;
+      if (chordElement) {
+        chordElement.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+      }
+    }
+  };
+
   return (
     <section className="pattern-container">
       <h2>{pattern.name}</h2>
@@ -49,7 +58,11 @@ const PatternDisplay = ({ pattern }: PatternDisplayProps) => {
       <div className="chords-scroller" ref={scrollerRef}>
         {pattern.shapes.map((chord, index) => (
           <div key={index} className="chord-item-wrapper">
-            <Chord chord={chord} imageSrc={getImagePath(chord.image)} />
+            <Chord
+              chord={chord}
+              imageSrc={getImagePath(chord.image)}
+              onClick={() => handleChordClick(index)} // Pass click handler
+            />
           </div>
         ))}
       </div>
