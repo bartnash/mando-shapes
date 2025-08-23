@@ -1,0 +1,32 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main # Trigger on pushes to the main branch
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest # Use the latest Ubuntu runner
+
+    steps:
+      - name: Checkout # Checkout the repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js # Set up Node.js environment
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20' # Use Node.js version 20
+
+      - name: Install dependencies # Install project dependencies
+        run: npm install
+
+      - name: Build # Build the project for production
+        run: npm run build
+
+      - name: Deploy to GitHub Pages # Deploy the built application to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }} # GitHub token for authentication
+          publish_dir: ./dist # Directory to publish
+          cname: example.com # Optional: if you have a custom domain
