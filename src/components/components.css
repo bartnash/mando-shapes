@@ -21,6 +21,7 @@
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   flex-grow: 1;
+  flex-shrink: 0; /* Added for correct flex behavior */
   min-height: 0; /* Prevent flexbox overflow issues */
   -webkit-overflow-scrolling: touch; /* for smooth scrolling on iOS */
   scrollbar-width: none; /* for Firefox */
@@ -79,32 +80,36 @@
 /* Tab styles */
 .tabs-container {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start; /* Align tabs to the start */
   margin-bottom: 2rem;
-  flex-wrap: wrap;
+  /* flex-wrap: wrap; */ /* Removed to keep tabs in a single row */
   width: 100%;
+  border-bottom: 1px solid #555; /* Base border for tabs */
 }
 
 .tab-button {
-  padding: 10px 20px;
-  font-size: 1rem;
+  padding: 8px 15px; /* Reduced padding */
+  font-size: 0.9rem; /* Slightly smaller font */
   cursor: pointer;
-  border: 1px solid #555;
-  background-color: transparent;
-  color: #ccc;
-  margin: 5px;
-  border-radius: 5px;
+  border: none; /* Remove individual button border */
+  background-color: #333; /* Background for inactive tabs */
+  color: #ccc; /* Text color for inactive tabs */
+  margin: 0 2px; /* Reduced margin */
+  border-radius: 5px 5px 0 0; /* Rounded top corners */
   transition: background-color 0.2s, color 0.2s;
+  position: relative; /* For active tab border */
+  top: 1px; /* Adjust to align with container border */
 }
 
 .tab-button:hover {
-  background-color: #333;
+  background-color: #444; /* Slightly lighter on hover */
 }
 
 .tab-button.active {
-  background-color: #007bff;
-  color: white;
-  border-color: #007bff;
+  background-color: #242424; /* Match page background */
+  color: #007bff; /* Active tab text color */
+  /* border-bottom: 2px solid #007bff; */ /* Highlight active tab */
+  margin-bottom: -1px; /* Overlap container's bottom border */
 }
 
 .pattern-content {
@@ -178,4 +183,37 @@ header {
 
 header h1 {
   margin: 0;
+}
+
+.chords-scroller-wrapper {
+  display: flex;
+  align-items: center;
+  width: 100%; /* Ensure it takes full width */
+  gap: 10px; /* Space between arrows and scroller */
+  justify-content: center; /* Center the whole block */
+}
+
+.scroll-arrow {
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  z-index: 10; /* Ensure arrows are above scroller */
+  font-size: 1.5rem;
+  border-radius: 5px;
+  opacity: 0.7;
+  transition: opacity 0.3s;
+}
+
+.scroll-arrow:hover {
+  opacity: 1;
+}
+
+.left-arrow {
+  left: 10px;
+}
+
+.right-arrow {
+  right: 10px;
 }

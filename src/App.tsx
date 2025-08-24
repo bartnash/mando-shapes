@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react'; // Import useRef
 import { Pattern } from './types';
 import PatternDisplay from './components/Pattern';
 
@@ -6,6 +6,8 @@ const App = () => {
   const [patterns, setPatterns] = useState<Pattern[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [activePatternId, setActivePatternId] = useState<string | null>(null);
+  const [showScrollIndicator, setShowScrollIndicator] = useState(true); // New state for indicator visibility
+  const scrollContainerRef = useRef<HTMLDivElement>(null); // New ref for scroll container
 
   useEffect(() => {
     const fetchPatterns = async () => {
@@ -31,16 +33,26 @@ const App = () => {
     fetchPatterns();
   }, []);
 
+  const handleScroll = () => {
+    const { scrollTop, scrollHeight, clientHeight } = scrollContainerRef.current!;
+    // Check if scrolled to the bottom
+    if (scrollHeight - scrollTop <= clientHeight + 1) { // Added a small buffer for floating point inaccuracies
+      setShowScrollIndicator(false);
+    } else {
+      setShowScrollIndicator(true);
+    }
+  };
+
   const activePattern = patterns.find(p => p.id === activePatternId);
 
   return (
-    <div className="scroll-container">
+    <div className="scroll-container" ref={scrollContainerRef} onScroll={handleScroll}> {/* Add ref and onScroll */}
       <section className="scroll-page welcome-page">
         <header>
           <img src="images/favicon.svg" alt="Mandolin Icon" className="app-icon" />
           <h1>Mandolin Shapes</h1>
         </header>
-        <div className="scroll-indicator">Scroll Down</div>
+        {showScrollIndicator && <div className="scroll-indicator">Scroll Down</div>} {/* Conditionally render */}
       </section>
 
       <section className="scroll-page patterns-page">
